@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { createWorker } from 'tesseract.js';
 import './App.css';
+//import img from 'yes.png';
 
 function App() {
   const worker = createWorker({
@@ -8,9 +9,9 @@ function App() {
   });
   const doOCR = async () => {
     await worker.load();
-    await worker.loadLanguage('eng');
-    await worker.initialize('eng');
-    const { data: { text } } = await worker.recognize('https://tesseract.projectnaptha.com/img/eng_bw.png');
+    await worker.loadLanguage('hin');
+    await worker.initialize('hin');
+    const { data: { text } } = await worker.recognize('https://i.imgur.com/2Zh9QLa.png');
     setOcr(text);
   };
   const [ocr, setOcr] = useState('Recognizing...');
